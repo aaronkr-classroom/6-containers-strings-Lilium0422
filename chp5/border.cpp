@@ -2,38 +2,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "split.h"
 
 using namespace std;
-
-vector<string> split(const string& s) {
-	vector<string> ret;
-	typedef string::size_type string_size; //파이썬 as 처럼
-	string_size i = 0; // 반복자에서 int 대신 string::size_type 사용
-
-	//불변성 : 지금까지 [원래의 i, 현재의 i) 범위에 있는 문자들을 처리
-	while (i != s.size()) {
-		// 선행하는 공백들을 무시
-		//불변성 : [원래의 i, 현재의 i) 범위에 있는 문자들은 모두 공백
-		while (i != s.size() && isspace(s[i]))
-			++i;
-		//순서상 다음 단어의 끝을 찾음
-		string_size j = i;
-
-		//불변성 : [원래의 i, 현재의 i) 범위에 있는 문자들은 공백이 아님
-		while (j != s.size() && !isspace(s[j]))
-			j++;
-
-		//공백이 아닌 문자들을 찾았을 때
-		if (i != j) {
-			// i 에서부터 j - 1 개의 문자들을 s에 복사
-			ret.push_back(s.substr(i, j - 1));
-			i = j;
-		}
-
-	} // while 끝
-	return ret;
-}
-
 
 string::size_type width(const vector<string>& v) {
 	string::size_type maxlen = 0;
@@ -66,7 +37,8 @@ vector<string> frame(const vector<string>& v) {
 }
 
 //수직 결합 vertical concat
-vector<string> vcat(const vector<string>& top, const vector<string>& bottom) {
+vector<string> vcat(const vector<string>& top, 
+					const vector<string>& bottom) {
 	
 	// 위쪽 문자 그림을 복사
 	vector<string> ret = top;
@@ -80,7 +52,8 @@ vector<string> vcat(const vector<string>& top, const vector<string>& bottom) {
 }
 
 //수평 결합 horizontal concat
-vector<string> hcat(const vector<string>& left, const vector<string>& right) {
+vector<string> hcat(const vector<string>& left, 
+					const vector<string>& right) {
 	vector<string> ret;
 
 	//두 문자 그림 사이에 공백 하나를 남김
@@ -117,7 +90,7 @@ vector<string> hcat(const vector<string>& left, const vector<string>& right) {
 3. hcat() 사용하기
 4. out.txt 파일에서 모든 출력 저장해주세요.
 */
-
+/*
 int main() {
 	string s;
 
@@ -131,3 +104,4 @@ int main() {
 	
 	return 0;
 }
+*/

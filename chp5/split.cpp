@@ -23,7 +23,7 @@ vector<string> split(const string& s) {
 
 		//불변성 : [원래의 i, 현재의 i) 범위에 있는 문자들은 공백이 아님
 		while (j != s.size() && !isspace(s[j]))
-			j++;
+			++j;
 
 		//공백이 아닌 문자들을 찾았을 때
 		if (i != j) {
