@@ -35,7 +35,7 @@ vector<string> split(const string& s) {
 	} // while ³¡
 	return ret;
 }
-
+/*
 int main() {
 	string s;
 
@@ -51,3 +51,4 @@ int main() {
 
 	return 0;
 }
+*/
